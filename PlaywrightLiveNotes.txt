@@ -1,0 +1,134 @@
+
+Playwright
+============
+Playwright is end to end automation framework for webui and api testing.
+
+
+Playwright file sturcture (every spec file contains number of test case)
+----------------------------------
+1. create fileName.spec.ts
+2. to create test case using function - test()
+
+
+How to design playwright test case
+=======================================
+1.Using Playwright (Inbuilt) Test Runner(Recommended)
+-------------------------------------------------------
+import {test} from "@playwright/test"
+
+here playwright is responsible to launch browser
+
+2. Using Async function(IIFE)
+------------------------------
+here we can launch browser and page manually
+
+Fixtures
+==========
+-  To design and test playwright test case enviornment will be provided by fixture
+- Fixture will help to supply some enviornment to testcase
+
+Types
+========
+1.InBuilt Fixtures
+-------------------
+By default playwright support 4 fixtures
+    1.Browser
+    2.Context/BrowserContext
+    3.Page
+    4.Request(API testing)
+
+2.Custom Fixture
+-----------------
+We can design our own fixtures during framework you will learn
+
+Playwright Execution Commands
+=============================
+1.To run all the spec files from tests folder
+----------------------------------------------
+npx playwright test
+
+2.To run all the spec files from tests folder with headed mode/with ui
+-----------------------------------------------------------------------
+npx playwright test --headed
+
+3.To run specific spec file
+----------------------------
+npx playwright test tests/filepath.spec.ts --headed
+
+4.To run test case on specific browser
+---------------------------------------
+npx playwright test tests/fileName.spec.ts --headed --project=chromium | firefox |webkit
+
+
+
+Playwright commands
+====================
+Internally, Playwright supports Mocha framework and chai assertion library.
+
+1.To open any application
+page.goto("url"): Promise<Response|null>
+
+2.To get the title of page
+---------------------------
+Returns the page's title.
+page.title():Promise<string>
+
+3.To get the current page url
+------------------------------
+page.url():string
+
+
+Load state with goto()
+=======================
+When to consider operation succeeded, defaults to load.
+
+Events can be either:
+'domcontentloaded' - consider operation to be finished when the DOMContentLoaded event is fired.
+'load' - consider operation to be finished when the load event is fired.
+'networkidle' - DISCOURAGED consider operation to be finished when there are no network connections for at least 500 ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
+'commit' - consider operation to be finished when network response is received and the document started loading.
+
+OR
+
+await page.waitForLoadState('load'):Promise<void> - Returns when the required load state has been reached.
+
+
+Assertion
+==========
+- Assertion helps you to validate certain/current state of the application.
+- For Assertion, Playwright supported 5sec autowait.
+- First update test with test runner - import {test,expect} from "@playwright/test";
+
+- Playwright support two type assertions
+1.Hard assertion
+------------------------
+- If asertion applied and it is getting fail then
+    hard assertion stops current test excution and after 5sec auto-wait (provided by Pw)
+    you will see Error.
+- By default PW supports hard assertion.
+
+Syntax:
+---------
+expect(Locator/page)
+
+
+2.Soft assertion
+---------------------
+- If asertion applied and it is getting fail then
+    soft assertion never stops current test excution and after 5sec auto-wait (provided by Pw)
+    you will see Error + all the execution steps
+- For assertion, we use 'chai assertion library' with expect()
+
+Syntax:
+--------
+
+
+Assertions Methods
+======================
+1.toHaveTitle("title"):Promise<void>
+------------------------------------
+Ensures the page has the given the title.
+
+2.toHaveUrl("url"):Promise<void>
+---------------------------------
+Ensures the page is navigated to the given URL.
