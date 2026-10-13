@@ -1,0 +1,369 @@
+
+Playwright
+============
+Playwright is end to end automation framework for webui and api testing.
+
+
+Playwright file sturcture (every spec file contains number of test case)
+----------------------------------
+1. create fileName.spec.ts
+2. to create test case using function - test()
+
+
+How to design playwright test case
+=======================================
+1.Using Playwright (Inbuilt) Test Runner(Recommended)
+-------------------------------------------------------
+import {test} from "@playwright/test"
+
+here playwright is responsible to launch browser
+
+2. Using Async function(IIFE)
+------------------------------
+here we can launch browser and page manually
+
+Fixtures
+==========
+-  To design and test playwright test case enviornment will be provided by fixture
+- Fixture will help to supply some enviornment to testcase
+
+Types
+========
+1.InBuilt Fixtures
+-------------------
+By default playwright support 4 fixtures
+    1.Browser
+    2.Context/BrowserContext
+    3.Page
+    4.Request(API testing)
+
+2.Custom Fixture
+-----------------
+We can design our own fixtures during framework you will learn
+
+Playwright Execution Commands
+=============================
+1.To run all the spec files from tests folder
+----------------------------------------------
+npx playwright test
+
+2.To run all the spec files from tests folder with headed mode/with ui
+-----------------------------------------------------------------------
+npx playwright test --headed
+
+3.To run specific spec file
+----------------------------
+npx playwright test tests/filepath.spec.ts --headed
+
+4.To run test case on specific browser
+---------------------------------------
+npx playwright test tests/fileName.spec.ts --headed --project=chromium | firefox |webkit
+
+
+
+Playwright commands
+====================
+Internally, Playwright supports Mocha framework and chai assertion library.
+
+1.To open any application
+page.goto("url"): Promise<Response|null>
+
+2.To get the title of page
+---------------------------
+Returns the page's title.
+page.title():Promise<string>
+
+3.To get the current page url
+------------------------------
+page.url():string
+
+
+Load state with goto()
+=======================
+When to consider operation succeeded, defaults to load.
+
+Events can be either:
+'domcontentloaded' - consider operation to be finished when the DOMContentLoaded event is fired.
+'load' - consider operation to be finished when the load event is fired.
+'networkidle' - DISCOURAGED consider operation to be finished when there are no network connections for at least 500 ms. Don't use this method for testing, rely on web assertions to assess readiness instead.
+'commit' - consider operation to be finished when network response is received and the document started loading.
+
+OR
+
+await page.waitForLoadState('load'):Promise<void> - Returns when the required load state has been reached.
+
+
+Assertion
+==========
+- Assertion helps you to validate certain/current state of the application.
+- For Assertion, Playwright supported 5sec autowait.
+- First update test with test runner - import {test,expect} from "@playwright/test";
+
+- Playwright support two type assertions
+1.Hard assertion
+------------------------
+- If asertion applied and it is getting fail then
+    hard assertion stops current test excution and after 5sec auto-wait (provided by Pw)
+    you will see Error.
+- By default PW supports hard assertion.
+
+Syntax:
+---------
+expect(Locator/page)
+
+
+2.Soft assertion
+---------------------
+- If asertion applied and it is getting fail then
+    soft assertion never stops current test excution and after 5sec auto-wait (provided by Pw)
+    you will see Error + all the execution steps
+- For assertion, we use 'chai assertion library' with expect()
+
+Syntax:
+--------
+
+
+Assertions Methods
+======================
+1.toHaveTitle("title"):Promise<void>
+------------------------------------
+Ensures the page has the given the title.
+
+2.toHaveUrl("url"):Promise<void>
+---------------------------------
+Ensures the page is navigated to the given URL.
+
+########################################################################################################
+
+10-10-2026
+==================
+- To start session on MSEdge/Firefox -- we have default browser settings in playwright(plyawright.config file)
+
+Manual setup to invoke browsers
+--------------------------------
+- How to start current session on MSEdge browser - chromium.launch({channel:'msedge',headless:false});
+- Run the test from runner/terminal
+
+Fixtures
+=========
+- To design and test playwright test case enviornment will be provided by fixture
+- Fixture will help to supply some enviornment to testcase
+
+Types of Fixtures
+------------------------
+1.Default/InBuilt Fixtures
+------------------------
+By default playwright support 4 fixtures
+    1.Browser
+    2.BrowserContext/Context - Isolated session OR Incognito window
+    3.Page (Creating a new tab - useful in Multiple window/tabs handling)
+    4.Request(API testing)
+
+2.Custom Fixture
+----------------------
+We can design our own fixtures (This would be taught during framework you will learn)
+
+
+Navigation commands in Playwright
+================================
+Navigate back
+----------------
+goBack()
+
+NavigateForward
+---------------------
+goForward()
+
+To refresh webpage
+---------------------
+reload()
+
+########################################################################################################
+
+11-10-2026
+=================
+
+What is WebElement?
+-------------------------
+Any UI element from page like inputbox,link,button,checkbox,radiobutton ...etc are called
+webelement
+
+How to automate webelement?
+===============================
+1.Identify webelement from application
+     -In Playwright to identify element based on css and xpath use locator()
+
+2.perform operation on that element
+
+
+WebElement validation methods
+====================================
+1.isVisible():Promise<boolean>
+Returns whether the element is visible.
+
+2.isEnabled():Promise<boolean>
+Returns whether the element is enabled.
+
+3.isEditable():Promise<boolean>
+Returns whether the element is editable.
+
+Actions On WebElement
+==========================
+- textbox,searchbox,inputbox-----type something---->fill("")
+- button,links,checbox,radiobutton------click------>click()
+-to clear the text--------------------------------->clear()
+-checkbox,radiobutton------------------------------->check() and uncheck()
+
+1.fill():Promise<void>
+Set a value to the input field.
+
+2.click():Promise<void>
+Click an element.
+
+3.check():Promise<void>
+Ensure that checkbox or radio element is checked.
+
+4.uncheck():Promise<void>
+Ensure that checkbox or radio element is unchecked.
+
+How to get the element visible text?
+=======================================
+<a> Visible Text </a>
+
+1.textContent():Promise<string|null>
+Returns the node.textContent.
+
+2.innerText():Promise<string>
+Returns the element.innerText.
+
+Special methods
+=======================
+Multiple similar type of elements
+
+first():Locator
+------------------
+Returns locator to the first matching element.
+
+last():Locator
+-----------------
+Returns locator to the last matching element.
+
+nth(index):Locator
+----------------------
+Returns locator to the n-th matching element. It's zero based, nth(0) selects the first element.
+
+
+
+=====================================================================
+
+AutoWaiting
+====================
+-Playwright support autowating for all actionable commands that is 30sec
+-Playwright support autowating fo assertions that is 5sec
+
+AutoWait for all the Actionalble commands in PW is 30sec
+=======================================================
+-Playwright performs a range of actionability checks on the elements before 
+making actions to ensure these actions behave as expected. 
+-It auto-waits for all the relevant checks to pass and only then performs the requested action.
+-If the required checks do not pass within the given timeout (30sec), 
+action fails with the TimeoutError.
+
+For example, for locator.click(), Playwright will ensure that:
+
+locator resolves to exactly one element
+element is Visible
+element is Stable, as in not animating or completed animation
+element Receives Events, as in not obscured by other elements
+element is Enabled
+
+If element completed and pass theses checks within 30sec then playwright complete click action
+
+
+
+Playwright identify webelement based on Locators
+
+What is locator?
+=====================
+Locator is address of webelement from the webpage
+
+Playwright support 3 strategies to locate the element
+==========================================
+1.Using cssSelector
+2.Using xpath
+3.Playwright Inbuilt locators
+    page.getByRole() to locate by explicit and implicit accessibility attributes.
+    page.getByText() to locate by text content.
+    page.getByLabel() to locate a form control by associated label's text.
+    page.getByPlaceholder() to locate an input by placeholder.
+    page.getByAltText() to locate an element, usually image, by its text alternative.
+    page.getByTitle() to locate an element by its title attribute.
+    page.getByTestId() to locate an element based on its data-testid attribute (other attributes can be configured).
+
+
+
+1.CssSelector
+=====================
+
+CSS: CSS stands for cascading style sheet , this is language used to provide styles to webelement
+
+- CssSelector is locator to identify webelement we use it
+- CssSelector identify webelement based on css properties of that element(like id,classname...etc)
+- CssSelector is faster than xpath
+- CssSelector can travel in only one direction parenttag --->childtag
+- CssSelector does not support any method it support special characters
+
+In Playwright to identify element based on css and xpath use locator()
+Syntax
+============
+1.tagname with id #
+===================
+Syntax:
+=============
+tagname#id
+
+Example
+a#SignIn  OR #SignIn.........1 of 1
+
+
+2.tagname with attribute
+================================
+Syntax:
+tagname[attribute='value']
+
+Example:
+<textarea name="q"></textarea>
+textarea[name='q'].............1 of 1
+
+
+3.tagname with className .(dot operator)
+=========================================
+<button id="submit-id" class="btn btn-default btn-primary">Submit</button>
+
+class="btn btn-default btn-primary"
+        c1      c2        c3                   3classes
+
+Syntax:
+=============
+tagname.className
+
+button.btn.btn-default.btn-primary      1 of 1
+
+OR
+
+button.btn-primary   1of 1
+
+4.tagname with id,classname and attribute
+=================================================
+Syntax:
+==============
+tagname#id.className[attribute='value']
+
+Example
+===========
+a.nav-link[href='sign-out.html']
+
+
+Next session
+=====================
+Explaination on Github is pending.....
