@@ -34,3 +34,12 @@ test("OrangeHRM - Title & URL Validation", async({page})=>{
     await expect(page).toHaveURL(/orangehrm/);
     console.log("Partial URL of the page is match" + pgUrl);
 })
+
+/*
+Running 1 test using 1 worker
+[Microsoft Edge] › tests\AS001_OrangeHRMTitleUrlValidation.spec.ts:13:1 › OrangeHRM - Title & URL Validation
+Page title matchedOrangeHRM
+Full URL of the page is match.https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+Partial URL of the page is matchhttps://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+  1 passed (8.4s)
+*/

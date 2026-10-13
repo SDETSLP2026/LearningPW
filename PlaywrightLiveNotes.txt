@@ -142,7 +142,7 @@ Ensures the page is navigated to the given URL.
 Manual setup to invoke browsers
 --------------------------------
 - How to start current session on MSEdge browser - chromium.launch({channel:'msedge',headless:false});
-- Run the test from runner/terminal
+- Run the test from runner/terminal (Terminal follows config file setup)
 
 Fixtures
 =========
