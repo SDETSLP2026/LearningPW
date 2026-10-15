@@ -35,7 +35,7 @@ test("OrangeHRM - Title & URL Validation", async({page})=>{
     console.log("Partial URL of the page is match" + pgUrl);
 })
 
-/*
+/* To run on MSEdge browser, the changes were made in playwright.config.js
 Running 1 test using 1 worker
 [Microsoft Edge] › tests\AS001_OrangeHRMTitleUrlValidation.spec.ts:13:1 › OrangeHRM - Title & URL Validation
 Page title matchedOrangeHRM

@@ -107,12 +107,11 @@ test("Test for GET request API Call",async({request})=>{
 
     let response:APIResponse=await request.get("https://restful-booker.herokuapp.com/booking");
 
-    console.log("Satatus code is: "+response.status());
-    console.log("Status message is: "+response.statusText());
+    console.log("Status code is: " + response.status());
+    console.log("Status message is: " + response.statusText());
     
-    //Body(JSON response)
+    //Response Body(JSON response)
     let jsonRes=await response.json();
     console.log(jsonRes);
-
 
 })

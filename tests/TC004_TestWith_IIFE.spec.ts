@@ -16,7 +16,6 @@ import { Browser, BrowserContext, Page, chromium } from "@playwright/test";
     
 })(); //Call the function without name
 
-
 //#######################################################
 
 (async()=>{
