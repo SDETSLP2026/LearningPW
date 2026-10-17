@@ -20,6 +20,7 @@ test("Test for Firefox browser", async({page})=>{
 })
 
 test.only("Launch firefox manually", async({})=>{
+//This feature was launched after playwright version 1.57
 
     let browser: Browser = await firefox.launch({headless: false});
 

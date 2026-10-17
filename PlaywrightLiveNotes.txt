@@ -185,15 +185,12 @@ reload()
 
 What is WebElement?
 -------------------------
-Any UI element from page like inputbox,link,button,checkbox,radiobutton ...etc are called
-webelement
+Any UI element from page like inputbox,link,button,checkbox,radiobutton ...etc are called webelement.
 
 How to automate webelement?
 ===============================
-1.Identify webelement from application
-     -In Playwright to identify element based on css and xpath use locator()
-
-2.perform operation on that element
+1. Identify webelement from application - In PW, to identify element based on css and xpath use locator()
+2. Perform operation on that element
 
 
 WebElement validation methods
@@ -258,16 +255,19 @@ Returns locator to the n-th matching element. It's zero based, nth(0) selects th
 
 AutoWaiting
 ====================
--Playwright support autowating for all actionable commands that is 30sec
--Playwright support autowating fo assertions that is 5sec
+- Autowait in playwright is available for - Actionalble webelements & Assertion commands.
+- Autowait in playwright is NOT available for - Navigation from one page to another page.
+- Playwright support autowating for all actionable commands that is 30sec
+- Playwright support autowating fo assertions that is 5sec
+
+
+
 
 AutoWait for all the Actionalble commands in PW is 30sec
 =======================================================
--Playwright performs a range of actionability checks on the elements before 
-making actions to ensure these actions behave as expected. 
--It auto-waits for all the relevant checks to pass and only then performs the requested action.
--If the required checks do not pass within the given timeout (30sec), 
-action fails with the TimeoutError.
+- Playwright performs a range of actionability checks on the elements before making actions to ensure these actions behave as expected. 
+- It auto-waits for all the relevant checks to pass and only then performs the requested action.
+- If the required checks do not pass within the given timeout (30sec), action fails with the TimeoutError.
 
 For example, for locator.click(), Playwright will ensure that:
 
@@ -289,9 +289,9 @@ Locator is address of webelement from the webpage
 
 Playwright support 3 strategies to locate the element
 ==========================================
-1.Using cssSelector
-2.Using xpath
-3.Playwright Inbuilt locators
+1. Using cssSelector
+2. Using xpath
+3. Playwright Inbuilt locators
     page.getByRole() to locate by explicit and implicit accessibility attributes.
     page.getByText() to locate by text content.
     page.getByLabel() to locate a form control by associated label's text.
@@ -310,26 +310,22 @@ CSS: CSS stands for cascading style sheet , this is language used to provide sty
 - CssSelector is locator to identify webelement we use it
 - CssSelector identify webelement based on css properties of that element(like id,classname...etc)
 - CssSelector is faster than xpath
-- CssSelector can travel in only one direction parenttag --->childtag
+- CssSelector can travel in only one direction parentTag ---> childTag (Reverse can't possible)
 - CssSelector does not support any method it support special characters
 
 In Playwright to identify element based on css and xpath use locator()
 Syntax
-============
+====================
 1.tagname with id #
-===================
-Syntax:
-=============
-tagname#id
-
-Example
-a#SignIn  OR #SignIn.........1 of 1
+-------------------
+Syntax: tagname#id
+-------------------
+Example: a#SignIn  OR #SignIn.........1 of 1
 
 
 2.tagname with attribute
-================================
-Syntax:
-tagname[attribute='value']
+-------------------------
+Syntax: tagname[attribute='value']
 
 Example:
 <textarea name="q"></textarea>
@@ -337,17 +333,15 @@ textarea[name='q'].............1 of 1
 
 
 3.tagname with className .(dot operator)
-=========================================
+-----------------------------------------
 <button id="submit-id" class="btn btn-default btn-primary">Submit</button>
 
 class="btn btn-default btn-primary"
         c1      c2        c3                   3classes
 
-Syntax:
-=============
-tagname.className
+Syntax: tagname.className
 
-button.btn.btn-default.btn-primary      1 of 1
+button.btn.btn-default.btn-primary      
 
 OR
 
@@ -355,13 +349,9 @@ button.btn-primary   1of 1
 
 4.tagname with id,classname and attribute
 =================================================
-Syntax:
-==============
-tagname#id.className[attribute='value']
+Syntax: tagname#id.className[attribute='value']
 
-Example
-===========
-a.nav-link[href='sign-out.html']
+Example: a.nav-link[href='sign-out.html']
 
 
 Next session

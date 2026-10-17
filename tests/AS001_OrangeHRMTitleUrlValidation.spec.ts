@@ -1,6 +1,6 @@
 /*
 Assignment1: Open website and verify title.
-Steps
+PS: Steps
 1. Launch browser miscrosoft edge
 2. Navigate to website https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 3. Get the page title & verify it.
