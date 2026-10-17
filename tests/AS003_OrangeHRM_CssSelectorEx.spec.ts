@@ -1,7 +1,7 @@
 /*
 Assignment3: 
 PS:
-Write script for Login  and Logout Functionality of Orangehrm using cssSelector
+Write script for Login and Logout Functionality of Orangehrm using cssSelector
 Use URL: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 */
 
@@ -12,15 +12,14 @@ test("CssSelector - OrangeHRM Login & Logout",async({page})=>{
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
     await page.locator("input[name='username']").fill("Admin");
+    await page.locator("input[placeholder='Password']").fill("admin123");
 
-    await page.locator("input[name='password']").fill("admin123");
-    
+    //Login
     await page.locator("button[type='submit']").click();
 
+    //Logout
     await page.locator("span.oxd-userdropdown-tab").last().click();
 
     await page.waitForTimeout(2000);
-
-
 
 })
