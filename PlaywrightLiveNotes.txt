@@ -249,8 +249,6 @@ nth(index):Locator
 ----------------------
 Returns locator to the n-th matching element. It's zero based, nth(0) selects the first element.
 
-
-
 =====================================================================
 
 AutoWaiting
@@ -357,3 +355,101 @@ Example: a.nav-link[href='sign-out.html']
 Next session
 =====================
 Explaination on Github is pending.....
+
+########################################################################################################
+
+17-10-2026
+-----------
+
+SCM - Software Configuration Management
+VCS - Version Control System
+ 
+
+Session
+=======
+Explaination on Github Basics - Done
+
+CssSelectors with Substring Operators/Symbols
+=============================================
+ * => partial match: This is like contains() from Java OR includes() from JS
+ ^ => startswith: match with prefix value
+ $ => endsWith: match with suffix value
+
+ 1. * => partial match (contains/includes) 
+ ==========================================
+ Syntax:
+ ========
+ tagname[attribute *='partial value']
+
+ Examples
+ ========
+ <input type="text" id="twotabsearchtextbox" value="">
+
+ input[id *='searchtext'].......1 of 1
+
+
+2. ^ startswith (prefix value)
+===============================
+Syntax
+ ========
+tagname[attribute ^='prefix value']
+
+Example:
+ ========
+ <input type="text" id="twotabsearchtextbox" value="">
+
+input[id ^='twotab'].........1 of 1 match
+
+3. $ endsWith (suffix value)
+============================
+Syntax:
+========
+tagname[attribute $='suffix value']
+
+Example:
+ ========
+ <input type="text" id="twotabsearchtextbox" value="">
+
+input[id $='box'].........1 of 1 match
+
+--------------------*************************-------------------------------
+
+Multiple match/elements
+========================
+Parent & child relations
+=========================
+1. decedent (without direct child relation/node)
+------------------------------------------------
+here we need to use white space
+
+Syntax:
+================
+parentTagName childTagName ............direct + indirect childs for that parent
+
+Example:
+------------
+aside a   13 nodes
+
+2. direct child (>)
+-------------------
+Syntax
+=========
+parentTagName>childTagName
+
+
+Example:
+--------------
+div.list-group>a     13 match
+
+Css With indexing
+------------------
+nth-child(index)
+
+Syntax:
+===============
+parentTagName>childTagName:nth-child(index)
+
+########################################################################################################
+
+18.10.2026
+----------
