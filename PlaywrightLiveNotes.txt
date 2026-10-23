@@ -451,5 +451,152 @@ parentTagName>childTagName:nth-child(index)
 
 ########################################################################################################
 
-18.10.2026
-----------
+18-10-2026
+=========================================================
+Xpath Locator
+==============
+- Xpath is path of the element from html/xml document
+- Xpath identify element from directly DOM(Document object model)
+- Xpath support multiple methods
+- xpath support Axis(based on relations of node we can identify elements)
+
+HTML DOM
+============
+<html>-------------root node
+<head>
+<title>My app</title>
+</head>
+<body>
+<div>
+<a>---------------element
+<input>
+<button>
+</body>
+</html>
+
+============================
+Xpath Types
+==============
+1.Absolute Xpath(full xpath)
+=================================
+- Absolute xpath identify element from root node
+- Absolute xpath starts with '/'
+
+/html/body/div[2]/div/div/div/div[2]/div/form/div[1]/input
+
+2.Relative Xpath(partial xpath)
+===================================
+- Relative xpath identify element from its relative property
+- Relative xpath starts with '//'
+
+//*[@id="input-email"]......here * means any tag whose id is input-email
+
+Syntax:
+================
+//tagname[@attribute='value']
+
+------------------------------------------------------
+Xpath with Operators
+=========================
+1.and
+============
+Syntax:
+========
+//tagname[@attribute1='value' and @attribute2='value']
+
+2.or
+============
+Syntax:
+========
+//tagname[@attribute1='value' or @attribute2='value']
+----------------------------------------------------------
+
+Xpath with indexing and position()
+=======================================
+
+Syntax:
+========
+(xpath)[index]
+
+OR
+
+(xpath)[position()=index]
+
+-------------------------------------------------------------------
+Xpath Methods
+================
+1.text()
+==================
+- to identify element basedon visible text we use text()
+- text() never ignore white space so if text os present with white space then text() will not find that element
+Syntax:
+============
+//tagname[text()='valisible text'];
+
+<opening tag>visible text</closing tag>
+
+Example
+============
+//a[text()='Mobiles']....1 of 1 
+
+2.normalize-space()
+==========================
+- normalize-space() identify element from visible text of element
+- normalize-space() is safe than text() as it ignore white spce like trim() of string and identify element
+
+Syntax:
+============
+//tagname[normalize-space()='visible text']
+
+//span[normalize-space()='Cart'].....1 of 2 match
+
+3.contains(): partial match
+==========================
+Syntax:
+=============
+//tagname[contains(@attribute,' partial value')]
+
+OR
+
+//tagname[contains(text(),'partial text')]
+
+Example
+===========
+<input id="twotabsearchtextbox">
+//input[contains(@id,'searchtext')]....1 of 1
+
+4.starts-with(): prefix value
+========================
+
+Sytax:
+==========
+//tagname[starts-with(@attribute,'prefix value')]
+
+OR
+
+//tagname[starts-with(text(),'prefix text')]
+
+Examples
+==============
+//input[starts-with(@id,'twotab')]   1 of 1
+========================================================
+Xpath Axies
+=================
+1.ancestor
+
+2.parent
+
+3.child
+
+4.following
+
+5.following-sibling
+
+6.preceding
+
+7.preceding-sibling
+
+
+
+Built In Locators
+=========================
