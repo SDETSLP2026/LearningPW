@@ -528,10 +528,10 @@ Xpath Methods
 1.text()
 ==================
 - to identify element basedon visible text we use text()
-- text() never ignore white space so if text os present with white space then text() will not find that element
+- text() never ignore white space so if text is present with white space then text() will not find that element
 Syntax:
 ============
-//tagname[text()='valisible text'];
+//tagname[text()='visibleText'];
 
 <opening tag>visible text</closing tag>
 
