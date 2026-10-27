@@ -1,5 +1,6 @@
 /*
-Assignment 4: Automate from website 3 test cases with css selector
+Assignment 4: 
+PS: Automate from website 3 test cases with css selector
 Navigate to this application: https://practicetestautomation.com/practice-test-login/
 
 TestData: Use next credentials to execute Login: Username: student | Password: Password123
