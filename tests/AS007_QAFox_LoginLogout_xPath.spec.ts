@@ -4,3 +4,8 @@ PS: Navigate to https://tutorialsninja.com/demo/index.php?route=account/login ap
 and automate login and logout scenario based on xpath
 */
 
+import {test,expect} from "@playwright/test"
+
+test("",async({page})=>{
+
+})
