@@ -576,27 +576,222 @@ OR
 
 //tagname[starts-with(text(),'prefix text')]
 
+
+##########################################################################################
+24.10.2026
+-----------
+
 Examples
 ==============
 //input[starts-with(@id,'twotab')]   1 of 1
 ========================================================
+
+// : indirect node
+/  :direct node
+
+
 Xpath Axies
 =================
 1.ancestor
+=================
+Syntax:
+==========
+//tagname//ancestor::tagname of ancestor node
 
 2.parent
+=================
+Syntax:
+==========
+//tagname[@attribute1='value']//parent::tagname of parent node
+
 
 3.child
+=================
+Syntax:
+==========
+//tagname[@attribute1='value']//child::tagname of child node
+
 
 4.following
+=================
+Syntax:
+==========
+//tagname[@attribute1='value']//following::tagname of following node
+
 
 5.following-sibling
+=================
+Syntax:
+==========
+//tagname[@attribute1='value']//following-sibling::tagname of sibling node
+
 
 6.preceding
+=================
+Syntax:
+==========
+//tagname[@attribute1='value']//preceding::tagname of preceding node
 
 7.preceding-sibling
+=================
+Syntax:
+==========
+//tagname[@attribute1='value']//preceding-sibling::tagname of sibling node
 
+-----html DOM-------
+
+<tbody>----------------------GrandParent-ancestor
+    <tr>  ----------------------Parent
+ 
+         <td>4</td>--------------------Preceding sibling
+
+          <td>John</td>--------------Element
+
+          <td>Robinson</td>---------Following-sibling
+
+          <td>jr5527</td>---------Following-sibling
+ 
+         <td>---------Following-sibling
+              <a href="user.html"><i class="icon-pencil"></i></a>
+              <a role="button" href="#myModal" data-toggle="modal"><i class="icon-remove"></i></a>
+          </td>
+
+        </tr>
+</tbody>
 
 
 Built In Locators
 =========================
+These are the recommended built-in locators.
+
+page.getByRole(): to locate by explicit and implicit accessibility attributes.
+page.getByText(): to locate by text content.
+page.getByLabel(): to locate a form control by associated label's text.
+page.getByPlaceholder(): to locate an input by placeholder.
+------------------------
+page.getByAltText(): to locate an element, usually image, by its text alternative.
+page.getByTitle(): to locate an element by its title attribute.
+page.getByTestId(): to locate an element based on its data-testid attribute (other attributes can be configured).
+
+
+==========================================
+
+WebElement Automations
+==========================
+
+Javascript Features Automation
+============================
+To run any javascript command playwright use evalute()
+Syntax:
+----------
+page.evaluate(()=>{
+     javascript command
+})
+
+What evaluate() does
+It executes the function you pass in the page’s context, not in Node.js.
+This means it can access browser objects like:
+document,window,localStorage
+
+Why use evaluate()?
+To read or modify the DOM
+To run custom JavaScript inside the webpage
+To get values not directly exposed by Playwright API
+evaluate() is more flexible when accessing any page-level JavaScript.
+
+TypeCasting in Typescript
+-------------------------
+as HTMLInputElement is called Type Casting. 
+It tells TypeScript that the selected web element is an Input Box 
+so that we can use input-specific properties like .value
+
+An Element is a generic DOM element. 
+TypeScript doesn't know whether it's:
+input
+button
+div
+span
+Since a generic Element doesn't have a value property, this gives an error:
+
+const input=document.querySelector("#twotabsearchtextbox") as HTMLInputElement;
+
+const btn = document.querySelector("#loginBtn") as HTMLButtonElement;
+
+const image = document.querySelector("#logo") as HTMLImageElement;
+
+const link = document.querySelector("#homeLink") as HTMLAnchorElement;
+
+
+-scroll the page
+-get the title
+-refresh webpage
+-interact and perform actions on element
+-hidden element automation
+-disable element automation
+==================================================================
+Dropdown Automation
+===========================
+1. <Select> tag based dropdown
+
+2. Bootstrap/Javascript/AutoSuggetion
+=================================
+Locator.filter()
+===================
+This method narrows existing locator according to the options, for example filters by text.
+ It can be chained to filter multiple times.
+
+Syntax:
+================
+(method) Locator.filter(options?: {
+    has?: Locator | undefined;
+    hasNot?: Locator;
+    hasNotText?: string | RegExp;
+    hasText?: string | RegExp;
+    visible?: boolean;
+} | undefined): Locator
+
+
+Calendar/Date picker Automation
+
+Data driven Testing
+==================
+Array
+JsonFile
+csv File
+Excel File
+
+
+WebTable Automation
+========================
+Static table
+Dynamic table
+Pegination logic
+
+Alert Automation
+
+Frame Automation
+
+Window handling
+
+File Upload 
+File download
+
+MouseOperations +Keyboard operation
+
+svgElement
+
+Shadow dom element
+
+Assertions
+
+Playwright Codegent
+grouping
+Hooks
+
+Framework Design
+
+API Testing
+
+Devops
+
+AI Integration
