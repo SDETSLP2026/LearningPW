@@ -673,7 +673,6 @@ page.getByAltText(): to locate an element, usually image, by its text alternativ
 page.getByTitle(): to locate an element by its title attribute.
 page.getByTestId(): to locate an element based on its data-testid attribute (other attributes can be configured).
 
-
 ==========================================
 
 WebElement Automations
@@ -722,13 +721,17 @@ const image = document.querySelector("#logo") as HTMLImageElement;
 const link = document.querySelector("#homeLink") as HTMLAnchorElement;
 
 
--scroll the page
--get the title
--refresh webpage
--interact and perform actions on element
--hidden element automation
--disable element automation
+- scroll the page
+    Browser ==> Window ==> Document ==> Body ==> Element
+
+- get the title
+- refresh webpage
+- interact and perform actions on element
+- hidden element automation
+- disable element automation
 ==================================================================
+
+
 Dropdown Automation
 ===========================
 1. <Select> tag based dropdown
@@ -776,7 +779,7 @@ Window handling
 File Upload 
 File download
 
-MouseOperations +Keyboard operation
+MouseOperations + Keyboard operation
 
 svgElement
 
@@ -784,8 +787,8 @@ Shadow dom element
 
 Assertions
 
-Playwright Codegent
-grouping
+Playwright Codegen
+Grouping
 Hooks
 
 Framework Design
