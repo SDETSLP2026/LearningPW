@@ -678,19 +678,19 @@ page.getByTestId(): to locate an element based on its data-testid attribute (oth
 WebElement Automations
 ==========================
 
-Javascript Features Automation
+JavaScript Features Automation
 ============================
-To run any javascript command playwright use evalute()
+To run any JavaScript command playwright use evalute().
+
 Syntax:
-----------
+-------
 page.evaluate(()=>{
-     javascript command
+     JavaScript command
 })
 
-What evaluate() does
+What evaluate() does?
 It executes the function you pass in the page’s context, not in Node.js.
-This means it can access browser objects like:
-document,window,localStorage
+This means it can access browser objects like: document,window,localStorage
 
 Why use evaluate()?
 To read or modify the DOM
@@ -698,10 +698,10 @@ To run custom JavaScript inside the webpage
 To get values not directly exposed by Playwright API
 evaluate() is more flexible when accessing any page-level JavaScript.
 
-TypeCasting in Typescript
+TypeCasting in TypeScript
 -------------------------
 as HTMLInputElement is called Type Casting. 
-It tells TypeScript that the selected web element is an Input Box 
+It tells TypeScript that the selected web element is an Input Box,
 so that we can use input-specific properties like .value
 
 An Element is a generic DOM element. 
@@ -736,7 +736,7 @@ Dropdown Automation
 ===========================
 1. <Select> tag based dropdown
 
-2. Bootstrap/Javascript/AutoSuggetion
+2. Bootstrap/JavaScript/AutoSuggetion
 =================================
 Locator.filter()
 ===================

@@ -7,7 +7,7 @@
   "keywords": [],
   "type": "module",
   "devDependencies": {
-    "@playwright/test": "^1.64.0",
+    "@playwright/test": "^1.64.1",
     "@types/node": "^26.6.5",
     "ts-node": "^10.9.2",
     "tsx": "^4.23.15",

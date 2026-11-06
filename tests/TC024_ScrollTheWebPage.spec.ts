@@ -1,4 +1,8 @@
-import {test, expect} from "@playwright/test";
+// - ./generics/TestUtil.js - code is used here
+
+import {test, expect, Locator} from "@playwright/test";
+import { scrollDown, scrollUp, scrollUpToElement } from "./generics/TestUtil.js";
+
 
 test("Test for page scroll functionality", async({page})=>{
 
@@ -34,4 +38,23 @@ test("Test for page scroll functionality", async({page})=>{
     await page.getByText("Upload Files").scrollIntoViewIfNeeded();
 
     await page.waitForTimeout(2000);
+})
+
+
+test("Test for scroll functionality using utility", async({page})=>{
+
+    await page.goto("https://testautomationpractice.blogspot.com/p/playwrightpractice.html");
+
+    await scrollDown(page);
+
+    await page.waitForTimeout(1500);
+
+    await scrollUp(page);
+
+    await page.waitForTimeout(1500);
+
+    let element:Locator = page.getByRole('heading',{name:'Pagination Web Table', level:2});
+    await scrollUpToElement(page,element);
+
+    await page.waitForTimeout(1500);
 })
