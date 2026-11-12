@@ -39,7 +39,7 @@ test("Test for Formy page select based dropdown",async({page})=>{
     await page.locator("#select-menu").selectOption({value:'3'});
     await page.waitForTimeout(1500);
 
-    //Value
+    //Index
     await page.locator("#select-menu").selectOption({index:2}); // Indexing starts from 0 - Select option
     await page.waitForTimeout(1500);
 
