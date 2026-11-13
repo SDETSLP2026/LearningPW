@@ -22,3 +22,25 @@ test("Test for footer scenario", async({page})=>{
     await page.waitForTimeout(2000);
 
 })
+
+test.only("Test for Amazon search with filter()", async({page})=>{
+
+    await page.goto("https://www.amazon.in/");
+
+    await page.locator("#twotabsearchtextbox").fill("Samsung");
+
+    await page.waitForTimeout(1500);
+
+    //list
+    let allOptions:Locator = page.locator("div.s-suggestion"); //total 10
+
+    //If the elements are dynamic, the code won't work
+    let ele:Locator = allOptions.filter({hasText:'a36 5g'});
+    console.log("Text is: " + await ele.innerText());
+    
+    //click
+    await ele.click();
+
+    await page.waitForTimeout(2000);
+
+})

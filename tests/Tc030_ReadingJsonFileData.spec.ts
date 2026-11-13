@@ -14,8 +14,7 @@ test("Test CRM login functionality using JSON file credentials", async({page})=>
     await page.waitForTimeout(2000);
 })
 
-test.only
-("Test CRM login functionality using JsonReadTS file credentials",async({page})=>{
+test.only("Test CRM login functionality using JsonReadTS file credentials",async({page})=>{
 
     //json/csv/excel data ---> JSObject
 
