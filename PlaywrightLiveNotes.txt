@@ -736,16 +736,17 @@ Dropdown Automation
 ===========================
 1. <Select> tag based dropdown
 
-2. Bootstrap/JavaScript/AutoSuggetion
+2. Bootstrap (Nonselect tags)/Javascript/AutoSuggetion
 =================================
 Locator.filter()
 ===================
 This method narrows existing locator according to the options, for example filters by text.
- It can be chained to filter multiple times.
+It can be chained to filter multiple times.
 
 Syntax:
 ================
-(method) Locator.filter(options?: {
+(method) Locator.filter(options?: 
+{
     has?: Locator | undefined;
     hasNot?: Locator;
     hasNotText?: string | RegExp;
@@ -755,33 +756,35 @@ Syntax:
 
 
 Calendar/Date picker Automation
-==============================
+=================================
 done---> Way to automate in same maual way(no inbuilt method)
 
 how to read data from File
 ============================
 json
 =======
-From the file if you wanted read data then import fs object
+From the file if you wanted read data then 
+import fs object
 JSON.parse(fs.readFileSync("filepath","format"))
 
 csv(comma separated value)
 =======================
-step1: papaparse library
+step1: install papaparse library
 https://www.npmjs.com/package/papaparse
 
 Papa Parse is the fastest in-browser CSV (or delimited text) parser for JavaScript.
 
-step2: install library
+step2: install library using command
 npm install papaparse
 
 step3:
 while import if you got error
-Could not find a declaration file for module 'papaparse'. 'c:/Users/piyun/OneDrive/Desktop/Trainings/PlaywrightE2ETrainingSA20264/node_modules/papaparse/papaparse.js' implicitly has an 'any' type.
-  Try `npm i --save-dev @types/papaparse` if it exists or add a new declaration (.d.ts) file containing `declare module 'papaparse';`ts(7016)
+Could not find a declaration file for module 'papaparse'. 
+'c:/Users/piyun/OneDrive/Desktop/Trainings/PlaywrightE2ETrainingSA20264/node_modules/papaparse/papaparse.js' implicitly has an 'any' type.
+Try `npm i --save-dev @types/papaparse` if it exists or add a new declaration (.d.ts) file containing `declare module 'papaparse';`ts(7016)
 
-  so run command in terminal
-  npm i --save-dev @types/papaparse
+so run command in terminal
+npm i --save-dev @types/papaparse
   --------------------------------------------
 
 Excel file
@@ -794,25 +797,110 @@ npm install xlsx
 ================================================
 Data driven Testing
 ==================
-Executing same set of actions with different set of data, multiple time is called 
-data driven testing
-- It is one of popular framework approach
+Executing same set of actions with different set of data, multiple time is called data driven testing.
+It is one of the popular framework approach.
 
-logic:
- just read data and execute test case for that data(loop)
+logic: just read data and execute test case for that data(inside loop)
 
 Ways
 ==========
 Array
-JsonFile
-csv File: paraparse
-Excel File: sheetjs/xlsx
+JSON File
+CSV File: papaparse
+EXCEL File: sheetjs/xlsx
 
 
 ==================================================
-Alert Automation
 
+
+## 15-11-2026
+==============
+Alert Automation/ Dialog
+==========================
+What is Alert?
+=============
+An Alert is Javascript popup message displayed by an application - 
+about confirmataion, guiding user with message or it will accept some input from user.
+
+Types of Alerts
+===============
+1. Simple alert (alert with Ok button)
+2. Confirmation alert (alert with Ok and Cancel button)
+3. Prompt alert (to accept some input from user)
+
+- Playwright can interact with the web page dialogs such as alert, confirm, prompt as well as beforeunload confirmation.
+- By default, dialogs are auto-dismissed by Playwright, so you don't have to handle them.
+- For automation and for validation we can manually trigger event page.on()  
+
+In Playwright while automating the alerts we use methods
+---------------------------------------
+1. To simulate ok button action: accept()
+2. To simulate cancel button action: dismiss()
+3. To get the text of alert message : message()
+4. To simulate prompt alert : accept("prompt")
+5. To get the type of alert: type()
+
+1. (method) Dialog.type(): string
+Returns dialog's type, can be one of alert, beforeunload, confirm or prompt.
+
+2.(method) Dialog.message(): string
+A message displayed in the dialog.
+
+3.(method) Dialog.accept(promptText?: string | undefined): Promise<void>
+Returns when the dialog has been accepted.
+
+4.(method) Dialog.dismiss(): Promise<void>
+Returns when the dialog has been dismissed.
+
+---------------------------------------------------
+How to Automate any authentication Popup
+========================================
+Authentication popups where we have to share out login credentials
+
+https://the-internet.herokuapp.com/basic_auth
+
+1. hack: share real data drirectly in url
+https://username:password@the-internet.herokuapp.com/basic_auth
+
+https://admin:admin@the-internet.herokuapp.com/basic_auth
+
+2. using browserContext fixture we can share credential:safe
+====================================================
+this is suitable for all types of credentials
+
+//create context
+let context:BrowserContext = 
+await browser
+.newContext({httpCredentials:{
+                               username:"admin",
+                               password:"admin"
+                             }})
+
+====================================================
 Frame Automation
+========================
+- One html document embeded into another html document is called frame
+- any section/window used to display another html document is called frame
+
+<frame> ele <frame>
+<iframe> ele <iframe>
+
+what is iframe?
+---------------
+It is inline frame
+
+#document: one document is embeded into another document
+
+How to automate frame/iframe
+==============================
+1. Identify frame/iframe: framelocator()
+2. from frame identify expected element
+
+==========================================================================
+
+
+
+
 
 WebTable Automation
 ========================
@@ -833,7 +921,7 @@ Shadow dom element
 
 Assertions
 
-Playwright Codegent
+Playwright Codegen
 grouping
 Hooks
 
