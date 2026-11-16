@@ -68,9 +68,7 @@ test("Test for jQuery single selection dropdown with filter()", async({page})=>{
 
     await page.goto("https://www.jqueryscript.net/demo/Drop-Down-Combo-Tree/");
 
-    let multiSelectionDD = page.locator("#justAnInputBox");
     let singleSelectionDD:Locator = page.locator("#justAnotherInputBox");
-    let multiSelectionCascade = page.locator("#justAnInputBox1");
 
     await singleSelectionDD.click();
 

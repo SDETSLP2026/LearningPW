@@ -755,14 +755,64 @@ Syntax:
 
 
 Calendar/Date picker Automation
+==============================
+done---> Way to automate in same maual way(no inbuilt method)
 
+how to read data from File
+============================
+json
+=======
+From the file if you wanted read data then import fs object
+JSON.parse(fs.readFileSync("filepath","format"))
+
+csv(comma separated value)
+=======================
+step1: papaparse library
+https://www.npmjs.com/package/papaparse
+
+Papa Parse is the fastest in-browser CSV (or delimited text) parser for JavaScript.
+
+step2: install library
+npm install papaparse
+
+step3:
+while import if you got error
+Could not find a declaration file for module 'papaparse'. 'c:/Users/piyun/OneDrive/Desktop/Trainings/PlaywrightE2ETrainingSA20264/node_modules/papaparse/papaparse.js' implicitly has an 'any' type.
+  Try `npm i --save-dev @types/papaparse` if it exists or add a new declaration (.d.ts) file containing `declare module 'papaparse';`ts(7016)
+
+  so run command in terminal
+  npm i --save-dev @types/papaparse
+  --------------------------------------------
+
+Excel file
+===============
+step1: install external library SheetJS
+https://www.npmjs.com/package/xlsx
+
+npm install xlsx
+
+================================================
 Data driven Testing
 ==================
+Executing same set of actions with different set of data, multiple time is called 
+data driven testing
+- It is one of popular framework approach
+
+logic:
+ just read data and execute test case for that data(loop)
+
+Ways
+==========
 Array
 JsonFile
-csv File
-Excel File
+csv File: paraparse
+Excel File: sheetjs/xlsx
 
+
+==================================================
+Alert Automation
+
+Frame Automation
 
 WebTable Automation
 ========================
@@ -770,16 +820,12 @@ Static table
 Dynamic table
 Pegination logic
 
-Alert Automation
-
-Frame Automation
-
 Window handling
 
 File Upload 
 File download
 
-MouseOperations + Keyboard operation
+MouseOperations +Keyboard operation
 
 svgElement
 
@@ -787,8 +833,8 @@ Shadow dom element
 
 Assertions
 
-Playwright Codegen
-Grouping
+Playwright Codegent
+grouping
 Hooks
 
 Framework Design
