@@ -4,7 +4,7 @@ import fs from "fs";
 import {readSingleJsonData} from "../src/utility/JsonRead.js";
 import { json } from "stream/consumers";
 
-test("Test CRM login functionality using JSON file credentials", async({page})=>{
+test("Test CRM login functionality by passing credentials in the script", async({page})=>{
 
     await page.goto("https://automationplayground.com/crm/login.html");
 
@@ -16,13 +16,14 @@ test("Test CRM login functionality using JSON file credentials", async({page})=>
 })
 
 
-test.only("Test CRM login functionality using JsonReadTS file credentials",async({page})=>{
+test("Test CRM login functionality by reading JSON credentials to JS data",async({page})=>{
 
     //json/csv/excel data ---> JSObject
 
     let jsonData = fs.readFileSync("src/TestData/crmlogin.json","utf-8");
     console.log(jsonData);
 
+    //Converts a JavaScript Object Notation (JSON) string into an JS object.
     let jsData = JSON.parse(fs.readFileSync("src/TestData/crmlogin.json","utf-8"));
     console.log(jsData);
 
@@ -41,7 +42,7 @@ test.only("Test CRM login functionality using JsonReadTS file credentials",async
     await page.waitForTimeout(2000);
 })
 
-test.only("Test CRM login functionality using utility",async({page})=>{
+test("Test CRM login functionality using JSONReadTS file utility",async({page})=>{
 
     let data = readSingleJsonData("crmlogin",1);
 

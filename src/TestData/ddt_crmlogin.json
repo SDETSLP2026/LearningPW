@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "email":"ddt_jsontest1@gmail.com",
+        "password":"test123"
+    },
+
+    {
+        "id":2,
+        "email":"ddt_jsontest2@gmail.com",
+        "password":"test123"
+    },
+    {
+        "id":3,
+        "email":"ddt_jsontest3@gmail.com",
+        "password":"test123"
+    },
+    {
+        "id":4,
+        "email":"ddt_jsontest4@gmail.com",
+        "password":"test123"
+    }
+]

@@ -761,20 +761,20 @@ done---> Way to automate in same maual way(no inbuilt method)
 
 how to read data from File
 ============================
-json
+JSON
 =======
 From the file if you wanted read data then 
 import fs object
 JSON.parse(fs.readFileSync("filepath","format"))
 
 csv(comma separated value)
-=======================
+==========================
 step1: install papaparse library
 https://www.npmjs.com/package/papaparse
 
 Papa Parse is the fastest in-browser CSV (or delimited text) parser for JavaScript.
 
-step2: install library using command
+step2: install library using this command -
 npm install papaparse
 
 step3:
@@ -785,7 +785,7 @@ Try `npm i --save-dev @types/papaparse` if it exists or add a new declaration (.
 
 so run command in terminal
 npm i --save-dev @types/papaparse
-  --------------------------------------------
+--------------------------------------------
 
 Excel file
 ===============
@@ -800,7 +800,9 @@ Data driven Testing
 Executing same set of actions with different set of data, multiple time is called data driven testing.
 It is one of the popular framework approach.
 
-logic: just read data and execute test case for that data(inside loop)
+logic: 
+1. just read data 
+2. execute test case for that data(inside loop)
 
 Ways
 ==========
