@@ -23,8 +23,11 @@ test("Test for Rediff simple alert automation accepted manually", async({page})=
     page.on('dialog', async(alertBox)=>{ //here 'alertBox' is variable name - which point to current alert window
 
         console.log("---------- Manually alert handling ---------- ");
-        console.log("Current active alert type is: " + alertBox.type());
+        console.log("Current active alert type is: " + alertBox.type()); 
+        //type() - Returns dialog's type, can be one of alert, beforeunload, confirm or prompt.
+        
         console.log("Current active alert text is: " + alertBox.message());
+        //message() - A message displayed in the dialog.
         
         //Click on Ok
         await alertBox.accept();
@@ -86,7 +89,7 @@ test("Test for HerokuApp JS confirmation alert auto-dismiss by PW", async({page}
     //Click on button2 - Click for JS Confirm
     await page.locator("//button").nth(1).click();
 
-    //Now, alert will appear and auto dismiss by PW. That means PW clicked on 'Cancel' button.
+    //Now, alert will appear and auto dismiss by PW. That means PW clicked default on 'Cancel' button.
 
     await expect(page.locator("#result")).toHaveText("You clicked: Cancel");
     console.log("Result is: " + await page.locator("#result").innerText());

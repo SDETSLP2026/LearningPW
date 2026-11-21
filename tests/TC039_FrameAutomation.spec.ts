@@ -1,4 +1,4 @@
-import {test, expect, FrameLocator, Locator} from "@playwright/test";
+import {test, expect, FrameLocator, Locator, Frame} from "@playwright/test";
 
 test("Test for simple iFrame",async({page})=>{
 
@@ -44,5 +44,38 @@ test("Test for iframe automation",async({page})=>{
     await innerFrame.locator("div[aria-label='I am a human']").check();
 
     await page.waitForTimeout(2000);
+})
+
+test.only("Test for multiple frames count and name with URL of that frame", async({page})=>{
+
+    await page.goto("https://selectorshub.com/iframe-scenario/", {waitUntil: 'domcontentloaded'});
+
+    //await page.waitForLoadState('domcontentloaded');
+
+    await page.waitForTimeout(2000);
+
+    //page.frames():Frame[]: An array of all frames attached to the page.
+    let allFrames:Frame[] = page.frames();
+    console.log("The count of all frames on the page: " + allFrames.length);//14
+
+    //for every frame get the frame name and url of frame
+    
+    /*
+    1.name(): string
+    Returns frame's name attribute as specified in the tag.
+    If the name is empty, returns the id attribute instead.
+
+    2.url():string
+    Returns frame's url.
+    */
+
+    for(let frame of allFrames)
+    {
+        console.log("Frame name is: " + frame.name());
+        console.log("Frame URL is: " + frame.url());
+    }
+
+    await page.waitForTimeout(2000);
+
 })
 

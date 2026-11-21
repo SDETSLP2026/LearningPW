@@ -2,18 +2,19 @@ import {test, expect, Browser, webkit, BrowserContext, Page} from "@playwright/t
 
 test("Test for Authentication popup", async({page})=>{
 
+    // await page.goto("https://the-internet.herokuapp.com/basic_auth");
+    //This test will fail whenever you have some combinational credetials e.g. admin:admin123
     //https://<username:password>@domainURL/parameter
     await page.goto("https://admin:admin@the-internet.herokuapp.com/basic_auth");
 
     
     let text:string = await page.locator("div.example").innerText();
-    //Assertion for the message
-    expect(text).toContain("Congratulations!");
+    
+    expect(text).toContain("Congratulations!"); //Assertion for the message
+     
     console.log("Text is: " + text); //Print the message
     
     console.log("BasicAuth test automated!");
-
-   //This test will fail whenever you have some combinational credetials e.g. admin:admin123
 })
 
 test("Test for authentication popup with safe technique", async({})=>{
