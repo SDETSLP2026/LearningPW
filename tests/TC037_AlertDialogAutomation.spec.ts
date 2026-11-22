@@ -120,7 +120,8 @@ test("Test for HerokuApp confirmation alert dismiss manually", async({page})=>{
 
     await expect(page.locator("#result")).toHaveText("You clicked: Cancel");
     console.log("Result is: " + await page.locator("#result").innerText());
-    console.log("JS Confirmation alert is auto-dismiss manually.");
+    
+    console.log("JS Confirmation alert is dismissed manually.");
 
 })
 
