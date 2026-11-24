@@ -898,19 +898,74 @@ How to automate frame/iframe
 1. Identify frame/iframe: framelocator()
 2. from frame identify expected element
 
-==========================================================================
 
+To get total frames from page
+=================================
+page.frames():Frame[]: An array of all frames attached to the page.
 
+for every frame get the frame name and url of frame
+-======================================================
+1.name(): string
+Returns frame's name attribute as specified in the tag.
+If the name is empty, returns the id attribute instead.
 
-
-
+2.url():string
+Returns frame's url.
+===========================================
 WebTable Automation
 ========================
 Static table
 Dynamic table
 Pegination logic
 
+Table Scenarios
+===============
+1.Number of rows
+2.Number of columns
+3.Print specific row
+4.Print specific column
+5.get the data from table
+
+<table>
+<thead>
+<tr>
+<th>heading1</th>-----table heading
+<th>heading2</th>
+</tr>-------table row
+</thead>
+<tr><td>data1</td>
+<td>data2</td>
+</tr>
+<tr><td>data1</td>
+<td>data2</td>----table data
+</tr>
+<tr><td>data1</td>
+<td>data2</td>
+</tr>
+<tbody>
+</tbody>
+
+
+=========================================
 Window handling
+=========================
+
+brower--->context--->page
+
+1. 
+let [newPage]await Promise.all([
+                    //event
+                    context.waitForEvent('page'),
+                    //action
+                    page.locator("").click()
+                ])
+
+
+1.context.pages():Page[]:Returns all open pages in the context.
+
+2.bringToFront(): Promise<void>: Brings page to front (activates tab).
+
+====================================
 
 File Upload 
 File download
